@@ -2,7 +2,7 @@ import { ViteSSG } from 'vite-ssg/single-page'
 import { key, store } from './store';
 import App from './App.vue'
 
-ViteSSG(
+export const createApp = ViteSSG(
   App,
   ({ app, initialState }) => {
     app.use(store, key);

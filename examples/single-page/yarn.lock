@@ -114,6 +114,14 @@
     "@vue/shared" "3.2.2"
     csstype "^2.6.8"
 
+"@vue/server-renderer@^3.2.2":
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/@vue/server-renderer/-/server-renderer-3.2.2.tgz#686a77891d2d2ced8737d18e0d1564efe94205e5"
+  integrity sha512-o2EcPOeDfXvSK85OhdUWVUYumFW57+MwGFCszOqka2EFpOQVrzvUtYeF6KN2kCuAxexnuVQYtIDQwPZRchXSnQ==
+  dependencies:
+    "@vue/compiler-ssr" "3.2.2"
+    "@vue/shared" "3.2.2"
+
 "@vue/shared@3.2.2":
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/@vue/shared/-/shared-3.2.2.tgz#6104185ebd57af5a14ac51c1f491b2205fc24054"
