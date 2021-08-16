@@ -9,11 +9,14 @@ ViteSSG(
 
     if (import.meta.env.SSR) {
       // eslint-disable-next-line no-param-reassign
-      initialState.store = store.state;
+      initialState.storeState = store.state;
     } else {
-      store.replaceState(initialState.store);
+      if (initialState.storeState) {
+        store.replaceState(initialState.storeState);
+      }
     }
 
+    console.log('isReady', store.getters.isReady);
     if (!store.getters.isReady) {
       store.dispatch('initialize');
     }

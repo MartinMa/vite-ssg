@@ -14,15 +14,23 @@ export const store = createStore<State>({
     user: null,
   },
   getters: {
-    isReady: (state) => !!state.user,
+    isReady: (state) => {
+      if (!state || !state.user) {
+        return false;
+      } else {
+        return true;
+      }
+    }
   },
   actions: {
     initialize(context) {
+      console.log('initialize');
       context.state.user = {
         id: 1,
         firstName: 'Jane',
         lastName: 'Doe',
-      }
+      };
+      console.log(context.state.user);
     },
   },
 });
