@@ -1,23 +1,21 @@
-import { createPinia } from 'pinia'
 import { ViteSSG } from 'vite-ssg/single-page'
-import { useRootStore } from './store/root'
+import { key, store } from './store';
 import App from './App.vue'
 
 ViteSSG(
   App,
   ({ app, initialState }) => {
-    const pinia = createPinia()
-    app.use(pinia)
+    app.use(store, key);
 
     if (import.meta.env.SSR) {
-      // this will be stringified and set to window.__INITIAL_STATE__
-      initialState.pinia = pinia.state.value
+      // eslint-disable-next-line no-param-reassign
+      initialState.store = store.state;
     } else {
-      // on the client side, we restore the state
-      pinia.state.value = initialState.pinia || {}
+      store.replaceState(initialState.store);
     }
 
-    const store = useRootStore(pinia)
-    store.initialize()
+    if (!store.getters.isReady) {
+      store.dispatch('initialize');
+    }
   },
 )

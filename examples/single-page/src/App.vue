@@ -8,13 +8,14 @@
 
 <script setup lang="ts">
 import { useHead } from '@vueuse/head'
-import { useRootStore } from './store/root'
+import { useStore } from 'vuex';
+import { key } from './store';
 
 useHead({
   title: 'Hello World',
 })
 
-const store = useRootStore()
+const store = useStore(key);
 </script>
 
 <style>
